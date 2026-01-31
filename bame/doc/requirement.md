@@ -150,4 +150,79 @@ This architecture allows:
 
 ---
 
+# 4. Detailed business rules
+
+## 4.1 Invariants du domaine
+
+The following rules must always be true, regardless of the operation performed:
+
+* A bank account has a unique and unchangeable account number.
+* A balance can never be negative.
+* A currency can only appear once per account.
+* A Money item is immutable.
+* A Money item always has a currency and a non-negative amount.
+* Every financial operation is tracked via a Transaction.
+
+---
+
+## 4.2 Deposit Rules
+
+**Description**
+
+A deposit is the act of adding money in a specific currency to an account.
+
+**Rules**:
+
+* The deposit amount must be strictly positive.
+* If the currency already exists in the account, the amount is added.
+* If the currency does not exist, it is added to the account.
+* A DEPOSIT transaction is recorded.
+
+**Possible Errors**:
+
+* Zero or negative amount
+* Unsupported currency
+
+---
+
+## 4.3 Withdrawal Rules
+
+**Description**:
+
+A withdrawal consists of removing an amount of money from an account.
+
+**Rules**
+
+* The withdrawal amount must be strictly positive.
+* The currency must exist in the account.
+* The balance must be sufficient to cover the withdrawal.
+* A WITHDRAWAL transaction is recorded.
+
+**Possible Errors**:
+
+* Zero or negative amount
+* Currency not present in the account
+* Insufficient balance
+
+---
+
+## 4.4 Business Error Handling
+
+Business errors must be explicit and represented by dedicated exceptions, for example:
+
+* InsufficientFundsException
+* CurrencyNotFoundException
+* InvalidAmountException
+
+These exceptions are part of the domain and do not depend on any technical layer.
+
+---
+
+## 4.5 Future Considerations (Outside Current Scope)
+
+* Currency Conversion
+* Bank Fees
+* Account Freezing
+* Concurrent Transactions
+
 **End of initial documentation – BAME**
