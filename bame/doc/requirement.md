@@ -152,7 +152,7 @@ This architecture allows:
 
 # 4. Detailed business rules
 
-## 4.1 Invariants du domaine
+## 4.1 Domain invariants
 
 The following rules must always be true, regardless of the operation performed:
 
