@@ -31,8 +31,8 @@ public class Account {
 		return accountNumber;
 	}
 
-    public Collection<Money> getBalances() {
-		return balances.values();
+    public List<Money> getBalances() {
+		return new ArrayList<>(balances.values());
 	}
 
     public List<Transaction> getTransactions() {
