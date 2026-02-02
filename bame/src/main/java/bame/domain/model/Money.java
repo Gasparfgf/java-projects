@@ -29,10 +29,6 @@ public class Money {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
-		amount.add(amount);
-	}
-
 	public Currency getCurrency() {
 		return currency;
 	}

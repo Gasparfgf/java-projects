@@ -3,6 +3,7 @@ package bame.domain.model;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +33,10 @@ public class Account {
 	}
 
     public List<Money> getBalances() {
-		return new ArrayList<>(balances.values());
-	}
+        return Collections.unmodifiableList(
+            new ArrayList<>(balances.values())
+        );
+    }
 
     public List<Transaction> getTransactions() {
     	return transactions;
