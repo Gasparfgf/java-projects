@@ -19,7 +19,6 @@ import java.util.Objects;
  * */
 public class Account {
     private final String accountNumber;
-    private static final String ACCOUNT_PREFIX = "BAME";
     private final Map<Currency, Money> balances = new HashMap<>();
     private final List<Transaction> transactions = new ArrayList<>();
 

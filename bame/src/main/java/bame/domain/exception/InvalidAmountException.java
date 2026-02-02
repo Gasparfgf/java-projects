@@ -1,5 +1,15 @@
 package bame.domain.exception;
 
-public class InvalidAmountException {
+import java.math.BigDecimal;
+
+public class InvalidAmountException extends DomainException {
+
+    public InvalidAmountException(BigDecimal amount) {
+        super("Invalid amount: " + amount);
+    }
+
+    public InvalidAmountException(String message) {
+        super(message);
+    }
 
 }
