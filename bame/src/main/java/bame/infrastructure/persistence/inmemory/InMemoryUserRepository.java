@@ -1,4 +1,4 @@
-package bame.infrastructure.repository;
+package bame.infrastructure.persistence.inmemory;
 
 import java.util.HashMap;
 import java.util.Map;
