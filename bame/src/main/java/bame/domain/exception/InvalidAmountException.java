@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class InvalidAmountException extends DomainException {
 
     public InvalidAmountException(BigDecimal amount) {
-        super("Invalid amount: " + amount);
+        super("Invalid amount: " + amount + "\nAmount must be zero or positive!");
     }
 
     public InvalidAmountException(String message) {

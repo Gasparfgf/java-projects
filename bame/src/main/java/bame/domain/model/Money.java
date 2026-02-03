@@ -3,6 +3,8 @@ package bame.domain.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import bame.domain.exception.InvalidAmountException;
+
 /**
  * Designed to guarantee:
  * <ul>
@@ -21,7 +23,7 @@ public class Money {
 		this.currency = Objects.requireNonNull(currency, "Currency must not be null");
         this.amount = Objects.requireNonNull(amount, "Amount must not be null");
         if (amount.signum() < 0) {
-            throw new IllegalArgumentException("Amount must be zero or positive");
+            throw new InvalidAmountException(amount);
         }
 	}
 
@@ -43,7 +45,7 @@ public class Money {
 
         BigDecimal result = amount.subtract(other.amount);
         if (result.signum() < 0) {
-            throw new IllegalArgumentException("Resulting amount cannot be negative");
+            throw new InvalidAmountException("Resulting amount cannot be negative");
         }
 
         return new Money(currency, result);
@@ -53,7 +55,7 @@ public class Money {
         Objects.requireNonNull(other, "Money must not be null");
 
         if (currency != other.currency) {
-            throw new IllegalArgumentException(
+            throw new InvalidAmountException(
                 "Currency mismatch: " + currency + " vs " + other.currency
             );
         }

@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import bame.domain.exception.CurrencyNotFoundException;
+import bame.domain.exception.InsufficientFundsException;
+
 /**
  * <ul>
  * <li>Controls all business rules</li>
@@ -52,11 +55,20 @@ public class Account {
     }
 
     public void withdraw(Money money) {
-        Objects.requireNonNull(money);
+        Objects.requireNonNull(money, "Money must not be null");
 
         Money current = balances.get(money.getCurrency());
         if (current == null) {
-            throw new IllegalArgumentException("Currency not found on account");
+            throw new CurrencyNotFoundException(money.getCurrency());
+        }
+
+
+        if (current.getAmount().compareTo(money.getAmount()) < 0) {
+            throw new InsufficientFundsException(
+                money.getCurrency(),
+                current.getAmount(),
+                money.getAmount()
+            );
         }
 
         Money updated = current.subtract(money);
