@@ -35,6 +35,8 @@ To find the JaCoCo report :
 target/site/jacoco/index.html
 ```
 
+## Useful commands
+
 In one command you can launch the :
 
 * compilation
@@ -49,5 +51,8 @@ by using :
 mvn clean verify
 ```
 
+## Packages
 
+application : the application package orchestrate the logic.
+infrastructure: excellent to use Spring/JPA later.
 
