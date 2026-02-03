@@ -1,4 +1,4 @@
-package bame.repository;
+package bame.domain.repository;
 
 import java.util.Optional;
 
