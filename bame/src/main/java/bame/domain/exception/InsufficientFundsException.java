@@ -6,7 +6,7 @@ import bame.domain.model.Currency;
 
 public class InsufficientFundsException extends DomainException {
 
-    private static final long serialVersionUID = 3345705135552813685L;
+    private static final long serialVersionUID = 1L;
 
 	public InsufficientFundsException(
             Currency currency,
