@@ -2,6 +2,7 @@ package bame.application.service;
 
 import java.util.Objects;
 
+import bame.application.exception.AccountNotFoundException;
 import bame.application.port.in.DepositMoneyUseCase;
 import bame.domain.model.Account;
 import bame.domain.model.Money;
@@ -18,7 +19,7 @@ public class DepositMoneyService implements DepositMoneyUseCase {
     @Override
     public void deposit(String accountNumber, Money money) {
         Account account = accountRepository.findByAccountNumber(accountNumber)
-                .orElseThrow(() -> new IllegalArgumentException("Account not found"));
+                .orElseThrow(() -> new AccountNotFoundException(accountNumber));
 
         account.deposit(money);
         accountRepository.save(account);

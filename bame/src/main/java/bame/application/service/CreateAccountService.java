@@ -2,6 +2,7 @@ package bame.application.service;
 
 import java.util.Objects;
 
+import bame.application.exception.UserNotFoundException;
 import bame.domain.model.Account;
 import bame.domain.model.User;
 import bame.domain.repository.AccountRepository;
@@ -21,7 +22,7 @@ public class CreateAccountService {
 
     public Account createAccount(String userId, String accountNumber) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(userId));
 
         Account account = new Account(accountNumber);
         user.addAccount(account);

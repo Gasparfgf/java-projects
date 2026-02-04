@@ -2,7 +2,9 @@ package bame.domain.exception;
 
 public abstract class DomainException extends RuntimeException {
 
-    protected DomainException(String message) {
+    private static final long serialVersionUID = -2839273879523670874L;
+
+	protected DomainException(String message) {
         super(message);
     }
 
