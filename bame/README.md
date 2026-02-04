@@ -28,12 +28,70 @@ Scalability will be the validator of my project. This project has to be able to 
 
 But without breaking what is already done.
 
+## Project structure
+
+```text
+banking-engine/
+│
+├── domain/
+│   ├── model/
+│   │   ├── Account.java
+│   │   ├── Money.java
+│   │   ├── User.java
+│   │   ├── Transaction.java
+│   │   ├── Currency.java
+│   │   └── TransactionType.java
+│   │
+│   ├── exception/
+│   │   ├── InsufficientFundsException.java
+│   │   ├── CurrencyNotFoundException.java
+│   │   └── InvalidAmountException.java
+│   │
+│   └── repository/
+│       ├── AccountRepository.java
+│       └── UserRepository.java
+│
+├── application/
+│   ├── service/
+│   │   ├── CreateUserService.java
+│   │   ├── CreateAccountService.java
+│   │   ├── DepositMoneyService.java
+│   │   └── WithdrawMoneyService.java
+│   │
+│   └── port/
+│       └── in/
+│           ├── CreateUserUseCase.java
+│           ├── DepositMoneyUseCase.java
+│           └── WithdrawMoneyUseCase.java
+│
+├── infrastructure/
+│   └── persistence/
+│       └── inmemory/
+│           ├── InMemoryAccountRepository.java
+│           └── InMemoryUserRepository.java
+│
+├── ui/
+│   └── cli/
+│       ├── BankingApplication.java
+│       └── MenuController.java
+│
+└── test/
+    ├── domain/
+    └── application/
+```
+
 ## Code coverage
 
 To find the JaCoCo report :
+
 ```bash
 target/site/jacoco/index.html
 ```
+
+
+## Technologies
+
+* Java 17
 
 ## Useful commands
 
@@ -47,6 +105,7 @@ In one command you can launch the :
 * CPD
 
 by using :
+
 ```bash
 mvn clean verify
 ```
