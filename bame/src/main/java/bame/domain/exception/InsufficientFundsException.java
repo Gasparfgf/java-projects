@@ -12,7 +12,7 @@ public class InsufficientFundsException extends DomainException {
      * Constructor.
      * @param currency the actual currency.
      * @param available the available balance.
-     * @param the amount requested.
+     * @param requested the amount requested.
      * */
 	public InsufficientFundsException(
             final Currency currency,

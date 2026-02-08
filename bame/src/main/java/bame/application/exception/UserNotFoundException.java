@@ -1,6 +1,7 @@
 package bame.application.exception;
 
 public class UserNotFoundException extends RuntimeException {
+	/** Serialization (IDE obligates).*/
 	private static final long serialVersionUID = -1L;
 
     /**

@@ -11,6 +11,7 @@ import bame.domain.exception.CurrencyNotFoundException;
 import bame.domain.exception.InsufficientFundsException;
 
 /**
+ * Manages the accounts.
  * <ul>
  * <li>Controls all business rules</li>
  * <li>Cannot have a negative balance</li>

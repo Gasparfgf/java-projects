@@ -38,7 +38,10 @@ public class Transaction {
      * The available transactions type.
      * */
 	public enum TransactionType {
-		 DEPOSIT, WITHDRAWAL;
+		/** deposit transaction type. */
+		DEPOSIT, 
+		/** withdraw transaction type. */
+		WITHDRAWAL;
 	}
 
 	/**

@@ -6,7 +6,8 @@ import java.util.Objects;
 import bame.domain.exception.InvalidAmountException;
 
 /**
- * Designed to guarantee:
+ * Designed to guarantee important aspects.
+ * Like:
  * <ul>
  * <li>immutability</li>
  * <li>financial security (BigDecimal)</li>
@@ -70,7 +71,7 @@ public class Money {
         return new Money(currency, result);
     }
 
-    private void requireSameCurrency(Money other) {
+    private void requireSameCurrency(final Money other) {
         Objects.requireNonNull(other, "Money must not be null");
 
         if (currency != other.currency) {
@@ -82,8 +83,12 @@ public class Money {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Money)) return false;
+        if (this == o) {
+        	return true;
+        }
+        if (!(o instanceof Money)) {
+        	return false;
+        }
         Money money = (Money) o;
         return currency == money.currency &&
                amount.compareTo(money.amount) == 0;

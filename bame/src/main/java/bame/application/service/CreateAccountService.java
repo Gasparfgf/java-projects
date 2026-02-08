@@ -31,6 +31,7 @@ public class CreateAccountService {
      * Create an account.
      * @param userId the user id.
      * @param accountNumber the account number
+     * @return the created account.
      * */
     public Account createAccount(final String userId, final String accountNumber) {
         User user = userRepository.findById(userId)

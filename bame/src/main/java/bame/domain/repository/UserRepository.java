@@ -5,6 +5,7 @@ import java.util.Optional;
 import bame.domain.model.User;
 
 public interface UserRepository {
+
 	/**
 	 * Save an user.
 	 * @param user the user to be saved.
