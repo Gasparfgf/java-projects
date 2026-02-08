@@ -6,11 +6,19 @@ public class InvalidAmountException extends DomainException {
 
     private static final long serialVersionUID = 1L;
 
-	public InvalidAmountException(BigDecimal amount) {
+    /**
+     * Constructor.
+     * @param amount the given amount.
+     * */
+	public InvalidAmountException(final BigDecimal amount) {
         super("Invalid amount: " + amount + "\nAmount must be zero or positive!");
     }
 
-    public InvalidAmountException(String message) {
+    /**
+     * Constructor.
+     * @param message the error message.
+     * */
+    public InvalidAmountException(final String message) {
         super(message);
     }
 

@@ -9,18 +9,30 @@ import bame.domain.repository.AccountRepository;
 import bame.domain.repository.UserRepository;
 
 public class CreateAccountService {
+	/** An user repository. */
 	private final UserRepository userRepository;
+	/** An account repository. */
     private final AccountRepository accountRepository;
 
+    /**
+     * Constructor.
+     * @param userRepository the user repository
+     * @param accountRepository the account repository
+     * */
     public CreateAccountService(
-            UserRepository userRepository,
-            AccountRepository accountRepository
+    		final UserRepository userRepository,
+    		final AccountRepository accountRepository
     ) {
         this.userRepository = Objects.requireNonNull(userRepository);
         this.accountRepository = Objects.requireNonNull(accountRepository);
     }
 
-    public Account createAccount(String userId, String accountNumber) {
+    /**
+     * Create an account.
+     * @param userId the user id.
+     * @param accountNumber the account number
+     * */
+    public Account createAccount(final String userId, final String accountNumber) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
 

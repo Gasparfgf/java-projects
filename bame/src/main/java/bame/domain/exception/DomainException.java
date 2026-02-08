@@ -4,11 +4,20 @@ public abstract class DomainException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-	protected DomainException(String message) {
+    /**
+     * Constructor.
+     * @param message the error message.
+     * */
+	protected DomainException(final String message) {
         super(message);
     }
 
-    protected DomainException(String message, Throwable cause) {
+    /**
+     * Constructor.
+     * @param message the error message.
+     * @param cause the throwable cause.
+     * */
+    protected DomainException(final String message, final Throwable cause) {
         super(message, cause);
     }
 

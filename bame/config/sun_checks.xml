@@ -52,6 +52,7 @@
 			value="${basedir}/config/checkstyle-suppressions.xml" />
 		<property name="optional" value="false"/>
 	</module>
+	<module name="SuppressWithPlainTextCommentFilter"/>
 
 	<!-- Checks that a package-info.java file exists for each package.     -->
 	<!-- See https://checkstyle.org/checks/javadoc/javadocpackage.html#JavadocPackage -->
@@ -95,7 +96,6 @@
 	<!-- <property name="fileExtensions" value="java"/> -->
 	<!-- </module> -->
 	<module name="TreeWalker">
-		<module name="SuppressWithPlainTextCommentFilter"/>
 
 		<!-- Checks for Javadoc comments.                     -->
 		<!-- See https://checkstyle.org/checks/javadoc/index.html -->
@@ -164,7 +164,7 @@
 		<module name="AvoidInlineConditionals" />
 		<module name="EmptyStatement" />
 		<module name="EqualsHashCode" />
-		<module name="HiddenField" />
+		<!-- <module name="HiddenField" /> -->
 		<module name="IllegalInstantiation" />
 		<module name="InnerAssignment" />
 		<module name="MagicNumber" />

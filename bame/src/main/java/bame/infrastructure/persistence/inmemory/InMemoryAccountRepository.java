@@ -8,15 +8,16 @@ import bame.domain.model.Account;
 import bame.domain.repository.AccountRepository;
 
 public class InMemoryAccountRepository implements AccountRepository {
+	/** Account storage. */
 	private final Map<String, Account> storage = new HashMap<>();
 	
 	@Override
-	public Optional<Account> findByAccountNumber(String accountNumber) {
+	public Optional<Account> findByAccountNumber(final String accountNumber) {
 		return Optional.ofNullable(storage.get(accountNumber));
 	}
 	
 	@Override
-	public void save(Account account) {
+	public void save(final Account account) {
 		storage.put(account.getAccountNumber(), account);
 	}
 }

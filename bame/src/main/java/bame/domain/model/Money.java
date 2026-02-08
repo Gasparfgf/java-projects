@@ -16,10 +16,17 @@ import bame.domain.exception.InvalidAmountException;
  * @author Gaspar Francisco
  * */
 public class Money {
+	/** Money currency. */
 	private Currency currency;
+	/** The amount of money. */
 	private BigDecimal amount;
 
-	public Money(Currency currency, BigDecimal amount) {
+    /**
+     * Constructor.
+     * @param currency the money currency.
+     * @param amount the money amount (quantity).
+     * */
+	public Money(final Currency currency, final BigDecimal amount) {
 		this.currency = Objects.requireNonNull(currency, "Currency must not be null");
         this.amount = Objects.requireNonNull(amount, "Amount must not be null");
         if (amount.signum() < 0) {
@@ -27,20 +34,32 @@ public class Money {
         }
 	}
 
+	/** @return money amount. */
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
+	/** @return money currency. */
 	public Currency getCurrency() {
 		return currency;
 	}
 
-    public Money add(Money other) {
+	/**
+	 * Add money to an account.
+	 * @param other the money to be added.
+	 * @return the amount of money available in bank account after addition.
+	 * */
+    public Money add(final Money other) {
         requireSameCurrency(other);
         return new Money(currency, amount.add(other.amount));
     }
 
-    public Money subtract(Money other) {
+	/**
+	 * Subtract money from an account.
+	 * @param other the money to be removed.
+	 * @return the amount of money available in bank account after subtraction.
+	 * */
+    public Money subtract(final Money other) {
         requireSameCurrency(other);
 
         BigDecimal result = amount.subtract(other.amount);
@@ -62,7 +81,7 @@ public class Money {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof Money)) return false;
         Money money = (Money) o;

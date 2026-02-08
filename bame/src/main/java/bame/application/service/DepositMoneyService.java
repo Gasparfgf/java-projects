@@ -9,15 +9,21 @@ import bame.domain.model.Money;
 import bame.domain.repository.AccountRepository;
 
 public class DepositMoneyService implements DepositMoneyUseCase {
-
+	/**
+	 * An account repository.
+	 * */
     private final AccountRepository accountRepository;
 
-    public DepositMoneyService(AccountRepository accountRepository) {
+    /**
+     * Constructor.
+     * @param accountRepository the account repository
+     * */
+    public DepositMoneyService(final AccountRepository accountRepository) {
         this.accountRepository = Objects.requireNonNull(accountRepository);
     }
 
     @Override
-    public void deposit(String accountNumber, Money money) {
+    public void deposit(final String accountNumber, final Money money) {
         Account account = accountRepository.findByAccountNumber(accountNumber)
                 .orElseThrow(() -> new AccountNotFoundException(accountNumber));
 

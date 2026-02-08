@@ -19,30 +19,50 @@ import bame.domain.exception.InsufficientFundsException;
  * </ul>
  * */
 public class Account {
+	/** Account number.*/
     private final String accountNumber;
+	/** List of balances.*/
     private final Map<Currency, Money> balances = new HashMap<>();
+	/** List of transactions.*/
     private final List<Transaction> transactions = new ArrayList<>();
 
 
-	public Account(String accountNumber) {
+    /**
+     * Constructor.
+     * @param accountNumber the account number.
+     * */
+	public Account(final String accountNumber) {
         this.accountNumber = Objects.requireNonNull(accountNumber, "Account number must not be null");
 	}
 
+	/**
+	 * @return account number.
+	 * */
     public String getAccountNumber() {
 		return accountNumber;
 	}
 
+    /**
+     * @return balances.
+     * */
     public List<Money> getBalances() {
         return Collections.unmodifiableList(
             new ArrayList<>(balances.values())
         );
     }
 
+    /**
+     * @return historic transactions.
+     * */
     public List<Transaction> getTransactions() {
     	return transactions;
     }
 
-    public void deposit(Money money) {
+    /**
+     * Deposit money to an existing account.
+     * @param money the money to deposit.
+     * */
+    public void deposit(final Money money) {
         Objects.requireNonNull(money, "Money object must not be null.");
 
         balances.merge(
@@ -54,7 +74,11 @@ public class Account {
         transactions.add(new Transaction(Transaction.TransactionType.DEPOSIT, money));
     }
 
-    public void withdraw(Money money) {
+    /**
+     * Withdraw money from existing account.
+     * @param money the money to be withdraw.
+     * */
+    public void withdraw(final Money money) {
         Objects.requireNonNull(money, "Money must not be null");
 
         Money current = balances.get(money.getCurrency());

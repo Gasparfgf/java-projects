@@ -8,10 +8,16 @@ public class InsufficientFundsException extends DomainException {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Constructor.
+     * @param currency the actual currency.
+     * @param available the available balance.
+     * @param the amount requested.
+     * */
 	public InsufficientFundsException(
-            Currency currency,
-            BigDecimal available,
-            BigDecimal requested
+            final Currency currency,
+            final BigDecimal available,
+            final BigDecimal requested
     ) {
         super(String.format(
             "Insufficient funds in %s: available=%s, requested=%s",

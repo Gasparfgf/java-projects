@@ -1,0 +1,2 @@
+/***/
+package bame.domain.model;

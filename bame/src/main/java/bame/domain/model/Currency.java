@@ -1,5 +1,10 @@
 package bame.domain.model;
 
 public enum Currency {
-    EUR, USD, GBP
+	/** Euro currency */
+    EUR, 
+	/** Dollar currency */
+    USD, 
+	/** Pounds currency */
+    GBP
 }
