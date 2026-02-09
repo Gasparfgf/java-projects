@@ -157,6 +157,10 @@
 			                        </limits>
 			                    </rule>
 			                </rules>
+			                <excludes>
+						        <exclude>**/exception/**</exclude>
+						        <exclude>**/package-info*</exclude>
+						    </excludes>
 			            </configuration>
         			</execution>
                 </executions>

@@ -98,8 +98,8 @@ public final class Money {
         	return false;
         }
         Money money = (Money) o;
-        return (currency == money.currency) &&
-               (amount.compareTo(money.amount) == 0);
+        return currency == money.currency &&
+               amount.compareTo(money.amount) == 0;
     }
 
     @Override
