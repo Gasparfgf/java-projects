@@ -56,7 +56,7 @@ public class Account {
      * @return historic transactions.
      * */
     public List<Transaction> getTransactions() {
-    	return transactions;
+        return Collections.unmodifiableList(transactions);
     }
 
     /**

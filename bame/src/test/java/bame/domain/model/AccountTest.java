@@ -5,6 +5,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import bame.domain.exception.CurrencyNotFoundException;
+import bame.domain.exception.InsufficientFundsException;
+
 
 public class AccountTest {
 
@@ -57,7 +60,7 @@ public class AccountTest {
         Account account = new Account("ACC-123");
         account.deposit(new Money(Currency.EUR, new BigDecimal("50")));
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(InsufficientFundsException.class, () ->
             account.withdraw(new Money(Currency.EUR, new BigDecimal("100")))
         );
     }
@@ -66,7 +69,7 @@ public class AccountTest {
     void should_throw_exception_when_withdrawing_currency_not_present() {
         Account account = new Account("ACC-123");
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(CurrencyNotFoundException.class, () ->
             account.withdraw(new Money(Currency.USD, new BigDecimal("10")))
         );
     }

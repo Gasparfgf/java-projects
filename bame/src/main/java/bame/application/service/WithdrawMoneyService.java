@@ -7,7 +7,7 @@ import bame.domain.model.Account;
 import bame.domain.model.Money;
 import bame.domain.repository.AccountRepository;
 
-public class WithdrawMoneyService implements WithdrawMoneyUseCase {
+public final class WithdrawMoneyService implements WithdrawMoneyUseCase {
 	/** An account repository. */
     private final AccountRepository accountRepository;
 

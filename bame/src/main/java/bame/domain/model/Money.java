@@ -3,6 +3,7 @@ package bame.domain.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import bame.domain.exception.CurrencyNotFoundException;
 import bame.domain.exception.InvalidAmountException;
 
 /**
@@ -16,7 +17,7 @@ import bame.domain.exception.InvalidAmountException;
  * </ul>
  * @author Gaspar Francisco
  * */
-public class Money {
+public final class Money {
 	/** Money currency. */
 	private Currency currency;
 	/** The amount of money. */
@@ -28,11 +29,18 @@ public class Money {
      * @param amount the money amount (quantity).
      * */
 	public Money(final Currency currency, final BigDecimal amount) {
-		this.currency = Objects.requireNonNull(currency, "Currency must not be null");
-        this.amount = Objects.requireNonNull(amount, "Amount must not be null");
-        if (amount.signum() < 0) {
-            throw new InvalidAmountException(amount);
-        }
+	    if (currency == null) {
+	        throw new CurrencyNotFoundException(currency);
+	    }
+	    if (amount == null) {
+	        throw new InvalidAmountException("Amount must not be null");
+	    }
+	    if (amount.signum() < 0) {
+	        throw new InvalidAmountException(amount);
+	    }
+
+	    this.currency = currency;
+	    this.amount = amount;
 	}
 
 	/** @return money amount. */
@@ -90,8 +98,8 @@ public class Money {
         	return false;
         }
         Money money = (Money) o;
-        return currency == money.currency &&
-               amount.compareTo(money.amount) == 0;
+        return (currency == money.currency) &&
+               (amount.compareTo(money.amount) == 0);
     }
 
     @Override

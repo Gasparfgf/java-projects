@@ -8,7 +8,7 @@ import bame.domain.model.User;
 import bame.domain.repository.AccountRepository;
 import bame.domain.repository.UserRepository;
 
-public class CreateAccountService {
+public final class CreateAccountService {
 	/** An user repository. */
 	private final UserRepository userRepository;
 	/** An account repository. */

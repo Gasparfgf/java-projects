@@ -8,7 +8,7 @@ import bame.domain.model.Account;
 import bame.domain.model.Money;
 import bame.domain.repository.AccountRepository;
 
-public class DepositMoneyService implements DepositMoneyUseCase {
+public final class DepositMoneyService implements DepositMoneyUseCase {
 	/**
 	 * An account repository.
 	 * */

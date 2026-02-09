@@ -2,6 +2,7 @@ package bame.domain.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -44,7 +45,7 @@ public class User {
 
     /** @return list of user bank accounts. */
     public List<Account> getAccounts() {
-        return accounts;
+        return Collections.unmodifiableList(accounts);
     }
 
     /**

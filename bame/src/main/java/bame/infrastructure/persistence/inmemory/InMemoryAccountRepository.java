@@ -7,7 +7,7 @@ import java.util.Optional;
 import bame.domain.model.Account;
 import bame.domain.repository.AccountRepository;
 
-public class InMemoryAccountRepository implements AccountRepository {
+public final class InMemoryAccountRepository implements AccountRepository {
 	/** Account storage. */
 	private final Map<String, Account> storage = new HashMap<>();
 

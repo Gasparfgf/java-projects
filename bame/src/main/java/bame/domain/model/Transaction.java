@@ -39,7 +39,7 @@ public class Transaction {
      * */
 	public enum TransactionType {
 		/** deposit transaction type. */
-		DEPOSIT, 
+		DEPOSIT,
 		/** withdraw transaction type. */
 		WITHDRAWAL;
 	}

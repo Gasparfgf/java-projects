@@ -7,7 +7,7 @@ import bame.application.port.in.CreateUserUseCase;
 import bame.domain.model.User;
 import bame.domain.repository.UserRepository;
 
-public class CreateUserService implements CreateUserUseCase {
+public final class CreateUserService implements CreateUserUseCase {
 	/** An user repository. */
     private final UserRepository userRepository;
 

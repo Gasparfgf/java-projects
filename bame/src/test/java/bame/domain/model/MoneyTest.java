@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+import bame.domain.exception.CurrencyNotFoundException;
+import bame.domain.exception.InvalidAmountException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -19,21 +22,21 @@ public class MoneyTest {
 
 	@Test
 	void should_throw_exception_when_currency_is_null() {
-		assertThrows(NullPointerException.class, () ->
+		assertThrows(CurrencyNotFoundException.class, () ->
 	        new Money(null, new BigDecimal("10"))
 	    );
 	}
 
 	@Test
 	void should_throw_exception_when_amount_is_null() {
-		assertThrows(NullPointerException.class, () ->
+		assertThrows(InvalidAmountException.class, () ->
 	        new Money(Currency.EUR, null)
 	    );
 	}
 
 	@Test
 	void should_throw_exception_when_amount_is_negative() {
-		assertThrows(IllegalArgumentException.class, () ->
+		assertThrows(InvalidAmountException.class, () ->
 	        new Money(Currency.EUR, new BigDecimal("-1"))
 	    );
 	}
@@ -61,7 +64,7 @@ public class MoneyTest {
 	    Money eur = new Money(Currency.EUR, new BigDecimal("50"));
 	    Money usd = new Money(Currency.USD, new BigDecimal("10"));
 
-	    assertThrows(IllegalArgumentException.class, () ->
+	    assertThrows(InvalidAmountException.class, () ->
 	        eur.add(usd)
 	    );
 	}
