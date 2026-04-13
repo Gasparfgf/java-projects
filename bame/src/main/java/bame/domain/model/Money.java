@@ -97,6 +97,7 @@ public final class Money {
         if (!(o instanceof Money)) {
         	return false;
         }
+
         Money money = (Money) o;
         return currency == money.currency &&
                amount.compareTo(money.amount) == 0;

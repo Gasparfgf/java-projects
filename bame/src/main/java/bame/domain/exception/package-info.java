@@ -1,4 +1,4 @@
 /**
- * Application scope exceptions.
+ * Business scope exceptions.
  * */
 package bame.domain.exception;
