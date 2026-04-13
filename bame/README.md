@@ -1,8 +1,19 @@
 # BAME
 
-## Version 0.0.1
-
 In this project, i design a **bank account management engine** in order test my capacity in designing a core business independent of any technology.
+
+---
+
+## Table of contents
+
+* [Context](#Context)
+* [Project structure](#Project structure)
+* [Code coverage](#Code coverage)
+* [Tech stack](#Tech stack)
+* [Useful commands](#Useful commands)
+
+
+## Context
 
 In this first version of the project i worked on a:
 
@@ -89,9 +100,10 @@ target/site/jacoco/index.html
 ```
 
 
-## Technologies
+## Tech stack
 
-* Java 17
+* Java 17+
+* Maven
 
 ## Useful commands
 
