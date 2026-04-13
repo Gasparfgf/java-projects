@@ -7,7 +7,7 @@
     <parent>
         <groupId>gasparfgf.projects</groupId>
         <artifactId>java-projects</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>bame</artifactId>
@@ -40,6 +40,8 @@
         <maven-checkstyle-plugin.version>3.4.0</maven-checkstyle-plugin.version>
         <maven-javadoc-plugin.version>3.8.0</maven-javadoc-plugin.version>
         <pmd.version>3.21.2</pmd.version>
+
+		<exeution.version>3.6.1</exeution.version>
 
         <!-- Text format -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -254,6 +256,15 @@
                     </archive>
                 </configuration>
             </plugin>
+            <!-- Execute application -->
+            <plugin>
+			    <groupId>org.codehaus.mojo</groupId>
+			    <artifactId>exec-maven-plugin</artifactId>
+			    <version>${exeution.version}</version>
+			    <configuration>
+			        <mainClass>bame.ui.cli.BankingApplication</mainClass>
+			    </configuration>
+			</plugin>
         </plugins>
 
     </build>

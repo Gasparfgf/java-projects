@@ -110,8 +110,7 @@ by using :
 mvn clean verify
 ```
 
-## Packages
-
-application : the application package orchestrate the logic.
-infrastructure: excellent to use Spring/JPA later.
-
+```bash
+# Launch the application
+mvn exec:java
+```
