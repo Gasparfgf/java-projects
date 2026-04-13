@@ -7,10 +7,10 @@ In this project, i design a **bank account management engine** in order test my 
 ## Table of contents
 
 * [Context](#Context)
-* [Project structure](#Project structure)
-* [Code coverage](#Code coverage)
-* [Tech stack](#Tech stack)
-* [Useful commands](#Useful commands)
+* [Project structure](#Project-structure)
+* [Code coverage](#Code-coverage)
+* [Tech stack](#Tech-stack)
+* [Useful commands](#Useful-commands)
 
 
 ## Context
